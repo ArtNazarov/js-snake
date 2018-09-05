@@ -131,6 +131,15 @@ function moveDn(){
   repaint();
 }
 
+setInterval( ()=>{
+  dx = Snake[0].x-Snake[1].x;
+  dy = Snake[0].y-Snake[1].y;
+  if (dx > 0) moveRt();
+  if (dx < 0) moveLt();
+  if (dy > 0) moveDn();
+  if (dy < 0) moveUp();
+}, 1000);
+
 repaint();
 
 document.addEventListener('keydown', (event) => {
