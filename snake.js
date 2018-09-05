@@ -94,8 +94,8 @@ function onAppleCatch(){
       Snake[0].y = Apples[a].y;
       repaint();
       console.log(Apples[a]);
-      Apples[a].x = Math.floor(Math.random()*numx);
-      Apples[a].y = Math.floor(Math.random()*numy);
+      Apples[a].x = (numx+Math.floor(Math.random()*(1+numx)))%numx;
+      Apples[a].y = (numy+Math.floor(Math.random()*(1+numy)))%numy;
       console.log(Apples[a]);
       repaint();
       break;
@@ -105,28 +105,28 @@ function onAppleCatch(){
 
 function moveLt(){
   doShift();
-  Snake[0].x--;
+  Snake[0].x = (numx+Snake[0].x-1) % numx;
   onAppleCatch();
   repaint();
 }
 
 function moveRt(){
  doShift();
-  Snake[0].x++;
+  Snake[0].x = (Snake[0].x+1) % (1+numx);
   onAppleCatch();
   repaint();
 }
 
 function moveUp(){
   doShift();
-  Snake[0].y--;
+  Snake[0].y = (numy+Snake[0].y-1) % numy;
   onAppleCatch();
   repaint();
 }
 
 function moveDn(){
   doShift();
-  Snake[0].y++;
+  Snake[0].y = (Snake[0].y+1) % (1+numy);
   onAppleCatch();
   repaint();
 }
